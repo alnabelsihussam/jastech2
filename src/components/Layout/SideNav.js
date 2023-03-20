@@ -56,13 +56,13 @@ const SideNav = () => {
               {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
               <li className="nav-item menu-open">
-                <a href="#" className="nav-link active">
+                <Link to="/Mitarbeiter" className="nav-link active">
                   <i className="nav-icon fas fa-tachometer-alt" />
                   <p>
                     Mitarbeiter
                     <i className="right fas fa-angle-left" />
                   </p>
-                </a>
+                </Link>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
                     <Link to="/AddMitarbeiter" className="nav-link active">
