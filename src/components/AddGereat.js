@@ -2,28 +2,22 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 
 //import Dashboard from "./Dashboard/Dashboard";
-import Layout from "./Layout/Layout";
+//import Layout from "./Layout/Layout";
 import SideNav from "./Layout/SideNav";
 //import Header from "./Layout/Header";
 
-const AddMitarbeiter = () => {
+const AddGereat = () => {
   const [name, setName] = useState("");
-  const [vorname, setVorname] = useState("");
-  const [geschlecht, setGeschlecht] = useState("");
-  const [Adresse, setAdresse] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [fachbereich, setFachbereich] = useState("");
+  const [gereatetyp, setGereatetyp] = useState("");
+  const [beschreibung, setBeschreibung] = useState("");
+  const [datum, setDatum] = useState("");
 
   const submit = () => {
-    Axios.post("http://localhost:3002/api/insert/mitarbeiter", {
+    Axios.post("http://localhost:3002/api/insert/AddGereat", {
       name: name,
-      vorname: vorname,
-      geschlecht: geschlecht,
-      Adresse: Adresse,
-      phone: phone,
-      email: email,
-      fachbereich: fachbereich,
+      gereatetyp: gereatetyp,
+      beschreibung: beschreibung,
+      datum: datum,
     })
       .then((res) => {
         console.log(" successful insert ");
@@ -36,7 +30,7 @@ const AddMitarbeiter = () => {
   return (
     <>
       <div>
-        <h1>AddMitarbeiter</h1>
+        <h1>AddGerät</h1>
 
         <section className="content">
           <div className="container-fluid">
@@ -47,7 +41,7 @@ const AddMitarbeiter = () => {
               <div className="col-md-6">
                 <div className="card card-primary">
                   <div className="card-header">
-                    <h3 className="card-title">Add Mitarbeiter </h3>
+                    <h3 className="card-title">Add Gerät </h3>
                   </div>
                   <form
                     id="quickForm"
@@ -56,7 +50,7 @@ const AddMitarbeiter = () => {
                   >
                     <div className="card-body">
                       <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">Name</label>
+                        <label>Name</label>
                         <input
                           type="text"
                           name="name"
@@ -71,90 +65,45 @@ const AddMitarbeiter = () => {
 
                     <div className="card-body">
                       <div className="form-group">
-                        <label>Vorname</label>
+                        <label>Gerätetyp</label>
                         <input
                           type="text"
-                          name="vorname"
+                          name="gereatetyp"
                           onChange={(e) => {
-                            setVorname(e.target.value);
+                            setGereatetyp(e.target.value);
                           }}
                           className="form-control"
-                          placeholder="Enter Vorname "
+                          placeholder="Enter Gerätetyp "
                         />
                       </div>
                     </div>
 
                     <div className="card-body">
                       <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">geschlecht</label>
+                        <label>Beschreibung</label>
                         <input
                           type="text"
-                          name="geschlecht"
+                          name="beschreibung"
                           onChange={(e) => {
-                            setGeschlecht(e.target.value);
+                            setBeschreibung(e.target.value);
                           }}
                           className="form-control"
-                          placeholder="Enter setGeschlecht"
+                          placeholder="Enter Beschreibung"
                         />
                       </div>
                     </div>
 
                     <div className="card-body">
                       <div className="form-group">
-                        <label>Adresse</label>
+                        <label>Datum</label>
                         <input
-                          type="text"
-                          name="Adresse"
+                          type="date"
+                          name="datum"
                           onChange={(e) => {
-                            setAdresse(e.target.value);
+                            setDatum(e.target.value);
                           }}
                           className="form-control"
                           placeholder="Enter Adresse"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="card-body">
-                      <div className="form-group">
-                        <label htmlFor="exampleInputEmail1">phone</label>
-                        <input
-                          type="text"
-                          name="phone"
-                          onChange={(e) => {
-                            setPhone(e.target.value);
-                          }}
-                          className="form-control"
-                          placeholder="Enter email"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="card-body">
-                      <div className="form-group">
-                        <label>Email address</label>
-                        <input
-                          type="email"
-                          name="phone"
-                          onChange={(e) => {
-                            setEmail(e.target.value);
-                          }}
-                          className="form-control"
-                          placeholder="Enter Email"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="card-body">
-                      <div className="form-group">
-                        <label>fachbereich</label>
-                        <input
-                          type="text"
-                          name="fachbereich"
-                          onChange={(e) => {
-                            setFachbereich(e.target.value);
-                          }}
-                          className="form-control"
-                          placeholder="Enter Fachbereich"
                         />
                       </div>
                     </div>
@@ -180,4 +129,4 @@ const AddMitarbeiter = () => {
   );
 };
 
-export default AddMitarbeiter;
+export default AddGereat;

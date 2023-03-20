@@ -8,15 +8,15 @@ const SideNav = () => {
       {/* Main Sidebar Container */}
       <aside className="main-sidebar sidebar-dark-primary elevation-4">
         {/* Brand Logo */}
-        <a href="index3.html" className="brand-link">
+        <Link to="/" className="brand-link">
           <img
             src="dist/img/AdminLTELogo.png"
             alt="AdminLTE Logo"
             className="brand-image img-circle elevation-3"
             style={{ opacity: ".8" }}
           />
-          <span className="brand-text font-weight-light">JaStech</span>
-        </a>
+          <span className="brand-text font-weight-light">JaStech1111</span>
+        </Link>
         {/* Sidebar */}
         <div className="sidebar">
           {/* Sidebar user panel (optional) */}
@@ -27,11 +27,6 @@ const SideNav = () => {
                 className="img-circle elevation-2"
                 alt="User Image"
               />
-            </div>
-            <div className="info">
-              <a href="#" className="d-block">
-                Alexander Pierce
-              </a>
             </div>
           </div>
           {/* SidebarSearch Form */}
@@ -100,10 +95,10 @@ const SideNav = () => {
                 </a>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
-                    <a href="./index.html" className="nav-link active">
+                    <Link to="/AddGereat" className="nav-link active">
                       <i className="far fa-circle nav-icon" />
                       <p>Add Gerät</p>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
