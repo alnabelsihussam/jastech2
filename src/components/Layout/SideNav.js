@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 const SideNav = () => {
   return (
     <div>
@@ -68,12 +70,12 @@ const SideNav = () => {
                 </a>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
-                    <a href="./index.html" className="nav-link active">
+                    <Link to="/AddMitarbeiter" className="nav-link active">
                       <i className="far fa-circle nav-icon" />
                       <p>Add Mitarbeiter</p>
-                    </a>
+                    </Link>
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <a href="./index2.html" className="nav-link">
                       <i className="far fa-circle nav-icon" />
                       <p>Dashboard v2</p>
@@ -84,7 +86,7 @@ const SideNav = () => {
                       <i className="far fa-circle nav-icon" />
                       <p>Dashboard v3</p>
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </li>
 
@@ -101,18 +103,6 @@ const SideNav = () => {
                     <a href="./index.html" className="nav-link active">
                       <i className="far fa-circle nav-icon" />
                       <p>Add Gerät</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="./index2.html" className="nav-link">
-                      <i className="far fa-circle nav-icon" />
-                      <p>Dashboard v2</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="./index3.html" className="nav-link">
-                      <i className="far fa-circle nav-icon" />
-                      <p>Dashboard v3</p>
                     </a>
                   </li>
                 </ul>

@@ -1,17 +1,13 @@
-import Header from "./components/Header";
+import { Routes, Route } from "react-router-dom";
+import AddMitarbeiter from "./components/AddMitarbeiter";
 import Home from "./components/Home";
-import SideNav from "./components/SideNav";
-import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Home />
-
-      <SideNav />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/AddMitarbeiter" element={<AddMitarbeiter />} />
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
 
