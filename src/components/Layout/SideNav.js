@@ -86,13 +86,13 @@ const SideNav = () => {
               </li>
 
               <li className="nav-item menu-open">
-                <a href="#" className="nav-link active">
+                <Link to="/Geräte" className="nav-link active">
                   <i className="nav-icon fas fa-tachometer-alt" />
                   <p>
                     Geräte
                     <i className="right fas fa-angle-left" />
                   </p>
-                </a>
+                </Link>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
                     <Link to="/AddGereat" className="nav-link active">

@@ -5,12 +5,19 @@ import Axios from "axios";
 //import Layout from "./Layout/Layout";
 import SideNav from "./Layout/SideNav";
 //import Header from "./Layout/Header";
+//import Mitarbeiter from "../Pages/Mitarbeiter";
 
+// Add Gerät
 const AddGereat = () => {
   const [name, setName] = useState("");
   const [gereatetyp, setGereatetyp] = useState("");
   const [beschreibung, setBeschreibung] = useState("");
   const [datum, setDatum] = useState("");
+  const [mitarbeiterId, setmitarbeiterId] = useState("");
+
+  const handleChange = (event) => {
+    setmitarbeiterId(event.target.value);
+  };
 
   const submit = () => {
     Axios.post("http://localhost:3002/api/insert/AddGereat", {
@@ -18,14 +25,27 @@ const AddGereat = () => {
       gereatetyp: gereatetyp,
       beschreibung: beschreibung,
       datum: datum,
+      mitarbeiterId: mitarbeiterId,
     })
       .then((res) => {
         console.log(" successful insert ");
+        console.log(name, "gggggggg");
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+  // Add Mitarbeiter Select
+
+  const [mitarbeiterList, setMitarbeiterList] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://localhost:3002/api/get/mitarbeiter").then((response) => {
+      setMitarbeiterList(response.data);
+      console.log(response.data);
+    });
+  }, []);
 
   return (
     <>
@@ -105,6 +125,36 @@ const AddGereat = () => {
                           className="form-control"
                           placeholder="Enter Adresse"
                         />
+                      </div>
+                    </div>
+
+                    {/* <div className="card-body">
+                      <div className="form-group">
+                        <label>Mitarbeiter</label>
+
+                        {mitarbeiterList.map((item) => (
+                          <select
+                            className="custom-select form-control-border"
+                            name="mitarbeiterId"
+                          >
+                            <option value="{item.name}">{item.name}</option>
+                          </select>
+                        ))}
+                      </div>
+                    </div> */}
+                    <div className="card-body">
+                      <div className="form-group">
+                        <label>Mitarbeiter</label>
+
+                        <select
+                          onChange={handleChange}
+                          className="custom-select form-control-border"
+                          name="mitarbeiterId"
+                        >
+                          {mitarbeiterList.map((item) => (
+                            <option value={item.id}>{item.name}</option>
+                          ))}
+                        </select>
                       </div>
                     </div>
 

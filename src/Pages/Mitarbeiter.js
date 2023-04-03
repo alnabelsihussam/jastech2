@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 
 // import Dashboard from "../components/Dashboard/Dashboard";
 import Header from "../components/Layout/Header";
@@ -7,6 +8,7 @@ import SideNav from "../components/Layout/SideNav";
 
 function Mitarbeiter() {
   const [mitarbeiterList, setMitarbeiterList] = useState([]);
+  // const [mitarbeiterListdelete, deleteMitarbeiterList] = useState([]);
 
   useEffect(() => {
     Axios.get("http://localhost:3002/api/get/mitarbeiter").then((response) => {
@@ -14,6 +16,12 @@ function Mitarbeiter() {
       console.log(response.data);
     });
   }, []);
+
+  const deleteItem = (id) => {
+    Axios.delete(`http://localhost:3002/api/mitarbeiter/delete/${id}`);
+  };
+
+  // deleteMitarbeiterList([...mitarbeiterListdelete, {}]);
 
   return (
     <div>
@@ -31,6 +39,15 @@ function Mitarbeiter() {
                 <div className="card-header">
                   <h3 className="card-title"> Mitarbeiter </h3>
                 </div>
+                <Link to="/AddMitarbeiter" className="nav-link active">
+                  <button
+                    type="button"
+                    className="btn btn-block btn-success btn-lg"
+                  >
+                    Add Mitarbeiter
+                  </button>
+                </Link>
+
                 <h1>Mitarbeiter </h1>
                 <div className="card">
                   <div className="card-header border-transparent">
@@ -69,12 +86,15 @@ function Mitarbeiter() {
                             <th scope="col">phone</th>
                             <th scope="col">email</th>
                             <th scope="col">fachbereich</th>
+                            <th scope="col">Action</th>
                           </tr>
                         </thead>
                         {mitarbeiterList.map((item) => (
                           <tbody>
                             <tr>
-                              <th scope="row">{item.id}</th>
+                              <th key={item.id} scope="row">
+                                {item.id}
+                              </th>
                               <td>{item.name}</td>
                               <td>{item.vorname}</td>
                               <td>{item.geschlecht}</td>
@@ -82,6 +102,23 @@ function Mitarbeiter() {
                               <td>{item.phone}</td>
                               <td>{item.email}</td>
                               <td>{item.fachbereich}</td>
+                              <td className="row">
+                                <button
+                                  onClick={(id) => {
+                                    deleteItem(item.id);
+                                  }}
+                                  type="button"
+                                  className="btn btn-block btn-danger btn-xs"
+                                >
+                                  Delete
+                                </button>
+                                <button
+                                  type="button"
+                                  className="btn btn-block btn-primary btn-xs"
+                                >
+                                  Update
+                                </button>
+                              </td>
                             </tr>
                           </tbody>
                         ))}
