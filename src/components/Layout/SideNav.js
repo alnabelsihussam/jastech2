@@ -1,4 +1,5 @@
 import React from "react";
+import logo22 from "../img/logo22.png";
 
 import { Link } from "react-router-dom";
 
@@ -10,27 +11,32 @@ const SideNav = () => {
         {/* Brand Logo */}
         <Link to="/" className="brand-link">
           <img
-            src="dist/img/AdminLTELogo.png"
-            alt="AdminLTE Logo"
+            src={logo22}
+            alt=" Logo"
             className="brand-image img-circle elevation-3"
-            style={{ opacity: ".8" }}
+            style={{ opacity: ".9" }}
           />
-          <span className="brand-text font-weight-light">JaStech1111</span>
+          <span className="brand-text font-weight-light">...</span>
         </Link>
         {/* Sidebar */}
         <div className="sidebar">
           {/* Sidebar user panel (optional) */}
           <div className="user-panel mt-3 pb-3 mb-3 d-flex">
             <div className="image">
-              <img
-                src="dist/img/user2-160x160.jpg"
-                className="img-circle elevation-2"
-                alt="User Image"
-              />
+              {/* <img src={logo22} alt="Logo" /> */}
+              <Link to="/" className="brand-link">
+                {/* <img
+                  src={logo22}
+                  alt=" Logo"
+                  className="brand-image img-circle elevation-3"
+                  style={{ opacity: ".8" }}
+                /> */}
+                <span className="brand-text font-weight-light">Home</span>
+              </Link>
             </div>
           </div>
           {/* SidebarSearch Form */}
-          <div className="form-inline">
+          {/* <div className="form-inline">
             <div className="input-group" data-widget="sidebar-search">
               <input
                 className="form-control form-control-sidebar"
@@ -44,7 +50,7 @@ const SideNav = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* Sidebar Menu */}
           <nav className="mt-2">
             <ul

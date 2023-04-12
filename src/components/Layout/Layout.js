@@ -9,7 +9,6 @@ function Layout() {
     <div>
       <Header />
       <SideNav />
-
       <Dashboard />
       {/* <Footer /> */}
     </div>
