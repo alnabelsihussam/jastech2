@@ -18,8 +18,20 @@ function Mitarbeiter() {
   }, []);
 
   const deleteItem = (id) => {
-    Axios.delete(`http://localhost:3002/api/mitarbeiter/delete/${id}`);
+    Axios.delete(`http://localhost:3002/api/mitarbeiter/delete/${id}`).then(
+      () => {
+        Axios.get("http://localhost:3002/api/get/mitarbeiter").then(
+          (response) => {
+            setMitarbeiterList(response.data);
+          }
+        );
+      }
+    );
   };
+
+  // const deleteItem = (id) => {
+  //  Axios.delete(`http://localhost:3002/api/mitarbeiter/delete/${id}`);
+  // };
 
   // deleteMitarbeiterList([...mitarbeiterListdelete, {}]);
 
@@ -39,15 +51,13 @@ function Mitarbeiter() {
                 <div className="card-header">
                   <h3 className="card-title"> Mitarbeiter </h3>
                 </div>
-                <Link to="/AddMitarbeiter" className="nav-link active">
-                  <button
-                    type="button"
-                    className="btn btn-block btn-success btn-lg"
-                  >
-                    Add Mitarbeiter
-                  </button>
-                </Link>
-
+                <div className="d-flex justify-content-end pr-3">
+                  <Link to="/AddMitarbeiter" className="nav-link active">
+                    <button type="button" className="btn btn-success btn-la">
+                      Add Mitarbeiter
+                    </button>
+                  </Link>
+                </div>
                 <h1>Mitarbeiter </h1>
                 <div className="card">
                   <div className="card-header border-transparent">

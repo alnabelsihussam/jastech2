@@ -16,6 +16,14 @@ function Geräte() {
     });
   }, []);
 
+  const deleteItem = (id) => {
+    Axios.delete(`http://localhost:3002/api/gerat/delete/${id}`).then(() => {
+      Axios.get("http://localhost:3002/api/get/gerat").then((response) => {
+        setGeratList(response.data);
+      });
+    });
+  };
+
   return (
     <div>
       <section className="content">
@@ -32,14 +40,16 @@ function Geräte() {
                 <div className="card-header">
                   <h3 className="card-title"> Geräten </h3>
                 </div>
-                <Link to="/AddGereat" className="nav-link active">
-                  <button
-                    type="button"
-                    className="btn btn-block btn-success btn-lg"
-                  >
-                    AddGerät
-                  </button>
-                </Link>
+                <div className="d-flex justify-content-end pr-3">
+                  <Link to="/AddGereat" className="nav-link active">
+                    <button
+                      type="button"
+                      className="btn btn-block btn-success btn-lg"
+                    >
+                      AddGerät
+                    </button>
+                  </Link>
+                </div>
                 <h1>Geräte </h1>
                 <div className="card">
                   <div className="card-header border-transparent">
@@ -89,18 +99,23 @@ function Geräte() {
                               <td>{item.datum}</td>
                               <td>{item.name}</td>
                               <td className="row">
-                                <button
-                                  type="button"
-                                  className="btn btn-block btn-danger btn-xs"
-                                >
-                                  Delete
-                                </button>
-                                <button
-                                  type="button"
-                                  className="btn btn-block btn-primary btn-xs"
-                                >
-                                  Update
-                                </button>
+                                <div>
+                                  <button
+                                    onClick={(id) => {
+                                      deleteItem(item.id);
+                                    }}
+                                    type="button"
+                                    className="btn btn-block btn-danger btn-xs"
+                                  >
+                                    Delete
+                                  </button>
+                                  <button
+                                    type="button"
+                                    className="btn btn-block btn-primary btn-xs"
+                                  >
+                                    Update
+                                  </button>
+                                </div>
                               </td>
                             </tr>
                           </tbody>
