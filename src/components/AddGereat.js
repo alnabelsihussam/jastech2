@@ -151,6 +151,7 @@ const AddGereat = () => {
                           className="custom-select form-control-border"
                           name="mitarbeiterId"
                         >
+                          <option selected> select Mitarbeiter</option>
                           {mitarbeiterList.map((item) => (
                             <option value={item.id}>{item.name}</option>
                           ))}

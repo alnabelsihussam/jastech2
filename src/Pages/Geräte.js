@@ -38,7 +38,7 @@ function Geräte() {
             <div className="col-md-9">
               <div className="card card-primary">
                 <div className="card-header">
-                  <h3 className="card-title"> Geräten </h3>
+                  <h3 className="card-title"> Liste die Geräten </h3>
                 </div>
                 <div className="d-flex justify-content-end pr-3">
                   <Link to="/AddGereat" className="nav-link active">
@@ -50,7 +50,7 @@ function Geräte() {
                     </button>
                   </Link>
                 </div>
-                <h1>Geräte </h1>
+                <h1>Liste die Geräten </h1>
                 <div className="card">
                   <div className="card-header border-transparent">
                     <h3 className="card-title"> Alle Geräten </h3>
@@ -80,7 +80,7 @@ function Geräte() {
                       <table className="table">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">id</th>
                             <th scope="col">Name</th>
                             <th scope="col">Gereatetyp</th>
                             <th scope="col">Beschreibung</th>

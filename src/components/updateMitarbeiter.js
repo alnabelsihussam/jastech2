@@ -6,17 +6,24 @@ import Layout from "./Layout/Layout";
 import SideNav from "./Layout/SideNav";
 //import Header from "./Layout/Header";
 
-const AddMitarbeiter = () => {
+const updateMitarbeiter = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [name, setName] = useState("");
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [vorname, setVorname] = useState("");
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [geschlecht, setGeschlecht] = useState("");
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [Adresse, setAdresse] = useState("");
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [phone, setPhone] = useState("");
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [email, setEmail] = useState("");
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [fachbereich, setFachbereich] = useState("");
 
   const submit = () => {
-    Axios.post("http://localhost:3002/api/mitarbeiter/update", {
+    Axios.put("http://localhost:3002/api/mitarbeiter/update", {
       name: name,
       vorname: vorname,
       geschlecht: geschlecht,
@@ -36,7 +43,7 @@ const AddMitarbeiter = () => {
   return (
     <>
       <div>
-        <h1>AddMitarbeiter</h1>
+        <h1>Update Mitarbeiter</h1>
 
         <section className="content">
           <div className="container-fluid">
@@ -47,7 +54,7 @@ const AddMitarbeiter = () => {
               <div className="col-md-6">
                 <div className="card card-primary">
                   <div className="card-header">
-                    <h3 className="card-title">Add Mitarbeiter </h3>
+                    <h3 className="card-title">Update Mitarbeiter </h3>
                   </div>
                   <form
                     id="quickForm"
@@ -161,11 +168,21 @@ const AddMitarbeiter = () => {
 
                     <div className="card-footer">
                       <button
-                        onClick={() => submit}
+                        onClick={() => {
+                          updateMitarbeiter(
+                            name,
+                            vorname,
+                            geschlecht,
+                            Adresse,
+                            phone,
+                            email,
+                            fachbereich
+                          );
+                        }}
                         type="submit"
                         className="btn btn-primary"
                       >
-                        Submit
+                        Update
                       </button>
                     </div>
                   </form>
@@ -180,4 +197,4 @@ const AddMitarbeiter = () => {
   );
 };
 
-export default AddMitarbeiter;
+export default updateMitarbeiter;

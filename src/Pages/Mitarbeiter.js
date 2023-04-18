@@ -122,12 +122,18 @@ function Mitarbeiter() {
                                 >
                                   Delete
                                 </button>
-                                <button
-                                  type="button"
-                                  className="btn btn-block btn-primary btn-xs"
+
+                                <Link
+                                  to="/updateMitarbeiter"
+                                  className="nav-link active"
                                 >
-                                  Update
-                                </button>
+                                  <button
+                                    type="button"
+                                    className="btn btn-block btn-primary btn-xs"
+                                  >
+                                    Update
+                                  </button>
+                                </Link>
                               </td>
                             </tr>
                           </tbody>
